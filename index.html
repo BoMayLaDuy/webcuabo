@@ -19,24 +19,21 @@ body {
   background: rgba(0,0,0,0.6);
   text-align: center;
   color: #fff;
-  z-index: 0;
 }
 .led-border::before {
   content: '';
   position: absolute;
   top: -8px;
   left: -8px;
-  right: -8px;
-  bottom: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
   border-radius: 28px;
-  padding: 8px;
-  background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: move 3.5s linear infinite;
+  background: repeating-linear-gradient(
+    90deg,
+    red, orange 14.28%, yellow 28.56%, green 42.84%, blue 57.12%, indigo 71.4%, violet 85.68%
+  );
+  background-size: 700% 700%;
+  animation: snake 4s linear infinite;
   z-index: -1;
 }
 a {
@@ -50,9 +47,12 @@ a {
   transition: 0.3s;
 }
 a:hover { background: #08c; }
-@keyframes move {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes snake {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
 }
 </style>
 </head>
