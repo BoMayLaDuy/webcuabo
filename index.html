@@ -1,73 +1,63 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Download Center</title>
-  <style>
-    body { 
-      font-family: Arial; 
-      background: #111; 
-      color: #eee; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .box {
-      position: relative;
-      padding: 20px;
-      background: #222;
-      width: 400px;
-      border-radius: 12px;
-      text-align: center;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .box::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      border-radius: 16px;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
-      background-size: 400% 400%;
-      animation: led 5s linear infinite;
-      z-index: -1;
-      padding: 4px;
-      -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: destination-out;
-    }
-
-    @keyframes led {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    a { 
-      display: block; 
-      margin: 10px auto; 
-      padding: 12px; 
-      background: #0af; 
-      color: white; 
-      text-decoration: none; 
-      border-radius: 8px; 
-      width: 60%;
-    }
-    a:hover { background: #08c; }
-  </style>
+<meta charset="UTF-8">
+<title>Download Center</title>
+<style>
+body {
+  font-family: Arial;
+  background: #111;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.box {
+  position: relative;
+  padding: 20px;
+  background: #222;
+  width: 400px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 1;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 400% 400%;
+  animation: led 5s linear infinite;
+  z-index: -1;
+}
+@keyframes led {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+a {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  background: #0af;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  width: 60%;
+}
+a:hover { background: #08c; }
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>Tải Delta x Vng tại đây</h1>
-    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta x Vng</a>
-  </div>
+<div class="box">
+  <h1>Tải Delta x Vng tại đây</h1>
+  <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta x Vng</a>
+</div>
 </body>
 </html>
