@@ -4,29 +4,34 @@
   <meta charset="UTF-8">
   <title>Download Center</title>
   <style>
-    html, body {
+    body {
+      font-family: Arial;
+      color: #fff;
+      text-align: center;
       margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
+      height: 100vh;
+      background: red;
+      animation: led 3.5s infinite;
     }
 
-    body {
-      background: url('https://i.pinimg.com/originals/8b/7c/0c/8b7c0c1b7d2b1b84e9b8b3c7a1b4f66b.gif') no-repeat center center fixed;
-      background-size: cover;
-      color: #eee;
-      text-align: center;
+    @keyframes led {
+      0% { background-color: red; }
+      14% { background-color: orange; }
+      28% { background-color: yellow; }
+      42% { background-color: green; }
+      57% { background-color: blue; }
+      71% { background-color: indigo; }
+      85% { background-color: violet; }
+      100% { background-color: red; }
     }
 
     .box {
-      position: relative;
-      z-index: 10;
       margin: 50px auto;
       padding: 20px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.6);
       width: 400px;
       border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
 
     a {
@@ -37,25 +42,10 @@
       color: white;
       text-decoration: none;
       border-radius: 8px;
+      transition: 0.3s;
     }
 
     a:hover { background: #08c; }
-
-    .particle {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background: url('https://i.imgur.com/8FHzJ8E.png') no-repeat center center;
-      background-size: contain;
-      pointer-events: none;
-      animation: float linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(-50px) translateX(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translateY(110vh) translateX(50px) rotate(360deg); opacity: 0; }
-    }
   </style>
 </head>
 <body>
@@ -63,17 +53,5 @@
     <h1>Tải delta x Vng tại đây</h1>
     <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
   </div>
-
-  <script>
-    for(let i=0; i<20; i++) {
-      const p = document.createElement('div');
-      p.classList.add('particle');
-      p.style.left = Math.random() * window.innerWidth + 'px';
-      p.style.animationDuration = (5 + Math.random()*5) + 's';
-      p.style.width = 20 + Math.random()*20 + 'px';
-      p.style.height = 20 + Math.random()*20 + 'px';
-      document.body.appendChild(p);
-    }
-  </script>
 </body>
 </html>
