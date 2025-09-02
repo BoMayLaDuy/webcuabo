@@ -14,6 +14,7 @@
       height: 100vh;
       margin: 0;
     }
+
     .box {
       position: relative;
       padding: 20px;
@@ -22,7 +23,9 @@
       border-radius: 12px;
       text-align: center;
       z-index: 1;
+      overflow: hidden;
     }
+
     .box::before {
       content: "";
       position: absolute;
@@ -33,14 +36,21 @@
       border-radius: 16px;
       background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
       background-size: 400% 400%;
-      animation: led 10s linear infinite;
+      animation: led 5s linear infinite;
       z-index: -1;
+      padding: 4px;
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
     }
+
     @keyframes led {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     a { 
       display: block; 
       margin: 10px auto; 
