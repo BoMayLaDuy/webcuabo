@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Download Center</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-    }
-    .led-border {
-      padding: 40px;
-      border-radius: 20px;
-      border: 8px solid red;
-      animation: led 3.5s infinite;
-      display: inline-block;
-      background: rgba(0,0,0,0.6);
-      text-align: center;
-      color: #fff;
-    }
-    @keyframes led {
-      0% { border-color: red; }
-      14% { border-color: orange; }
-      28% { border-color: yellow; }
-      42% { border-color: green; }
-      57% { border-color: blue; }
-      71% { border-color: indigo; }
-      85% { border-color: violet; }
-      100% { border-color: red; }
-    }
-    a {
-      display: block;
-      margin: 10px;
-      padding: 12px;
-      background: #0af;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    a:hover { background: #08c; }
-  </style>
+<meta charset="UTF-8">
+<title>Download Center</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+.led-border {
+  position: relative;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.6);
+  text-align: center;
+  color: #fff;
+  z-index: 0;
+}
+.led-border::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 28px;
+  padding: 8px;
+  background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: move 3.5s linear infinite;
+  z-index: -1;
+}
+a {
+  display: block;
+  margin: 10px;
+  padding: 12px;
+  background: #0af;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+a:hover { background: #08c; }
+@keyframes move {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 </head>
 <body>
-  <div class="led-border">
-    <h1>Tải delta x Vng tại đây</h1>
-    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
-  </div>
+<div class="led-border">
+  <h1>Tải delta x Vng tại đây</h1>
+  <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
+</div>
 </body>
 </html>
