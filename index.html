@@ -5,33 +5,44 @@
   <title>Download Center</title>
   <style>
     body {
-      font-family: Arial;
-      color: #fff;
-      text-align: center;
       margin: 0;
       height: 100vh;
-      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+    }
+
+    .led-border {
+      padding: 20px;
+      border-radius: 20px;
+      border: 8px solid red;
       animation: led 3.5s infinite;
+      display: inline-block;
+      background: rgba(0,0,0,0.6);
     }
 
     @keyframes led {
-      0% { background-color: red; }
-      14% { background-color: orange; }
-      28% { background-color: yellow; }
-      42% { background-color: green; }
-      57% { background-color: blue; }
-      71% { background-color: indigo; }
-      85% { background-color: violet; }
-      100% { background-color: red; }
+      0% { border-color: red; }
+      14% { border-color: orange; }
+      28% { border-color: yellow; }
+      42% { border-color: green; }
+      57% { border-color: blue; }
+      71% { border-color: indigo; }
+      85% { border-color: violet; }
+      100% { border-color: red; }
     }
 
     .box {
-      margin: 50px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      width: 400px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .box img {
+      width: 200px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      display: block;
+      margin: 0 auto 15px;
     }
 
     a {
@@ -49,9 +60,12 @@
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Tải delta x Vng tại đây</h1>
-    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
+  <div class="led-border">
+    <div class="box">
+      <img src="https://i.imgur.com/5J0aG0I.png" alt="Anime Nam Lạnh Lùng">
+      <h1>Tải delta x Vng tại đây</h1>
+      <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
+    </div>
   </div>
 </body>
 </html>
