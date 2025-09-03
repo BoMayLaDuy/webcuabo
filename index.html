@@ -1,54 +1,109 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Download Center</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-    }
-    .led-border {
-      padding: 40px;
-      border-radius: 20px;
-      border: 8px solid red;
-      animation: led 3.5s infinite;
-      display: inline-block;
-      background: rgba(0,0,0,0.6);
-      text-align: center;
-      color: #fff;
-    }
-    @keyframes led {
-      0% { border-color: red; }
-      14% { border-color: orange; }
-      28% { border-color: yellow; }
-      42% { border-color: green; }
-      57% { border-color: blue; }
-      71% { border-color: indigo; }
-      85% { border-color: violet; }
-      100% { border-color: red; }
-    }
-    a {
-      display: block;
-      margin: 10px;
-      padding: 12px;
-      background: #0af;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    a:hover { background: #08c; }
-  </style>
+<meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Center</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    font-family: Arial, sans-serif;
+  }
+
+  .led-box {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .client-btn {
+    padding: 14px 28px;
+    font-size: 18px;
+    color: #fff;
+    background: #0af;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 2;
+    text-decoration: none;
+  }
+
+  .client-btn:hover {
+    background: #08c;
+  }
+
+  .led {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+</style>
 </head>
 <body>
-  <div class="led-border">
-    <h1>Tải Delta x Vng tại đây</h1>
-    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta x Vng</a>
+  <div class="led-box">
+    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank" class="client-btn">Delta x Vng</a>
   </div>
+
+<script>
+const box = document.querySelector('.led-box');
+const colors = ['red','orange','yellow','green','blue','indigo','violet'];
+const leds = [];
+const totalLEDs = 50;
+
+for(let i=0;i<totalLEDs;i++){
+  const led = document.createElement('div');
+  led.classList.add('led');
+  box.appendChild(led);
+  leds.push(led);
+}
+
+function animateLEDs() {
+  const w = box.clientWidth;
+  const h = box.clientHeight;
+  const path = [];
+
+  const segments = totalLEDs / 4;
+
+  for(let i=0;i<segments;i++){
+    path.push({x: i*(w/segments), y:0});
+  }
+  for(let i=0;i<segments;i++){
+    path.push({x: w-12, y: i*(h/segments)});
+  }
+  for(let i=0;i<segments;i++){
+    path.push({x: w - i*(w/segments) - 12, y: h-12});
+  }
+  for(let i=0;i<segments;i++){
+    path.push({x:0, y: h - i*(h/segments) -12});
+  }
+
+  let step = 0;
+  setInterval(()=>{
+    leds.forEach((led,i)=>{
+      const pos = path[(i+step)%path.length];
+      led.style.left = pos.x+'px';
+      led.style.top = pos.y+'px';
+      led.style.background = colors[(i+step)%colors.length];
+    });
+    step++;
+  }, 80);
+}
+
+animateLEDs();
+</script>
 </body>
 </html>
