@@ -1,106 +1,54 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Box LED Snake</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #111;
-    font-family: Arial, sans-serif;
-  }
-
-  .led-box {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #222;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .client-btn {
-    padding: 12px 24px;
-    font-size: 16px;
-    color: #fff;
-    background: #444;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .client-btn:hover {
-    background: #666;
-  }
-
-  .led {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-</style>
+  <meta charset="UTF-8">
+  <title>Download Center</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+    }
+    .led-border {
+      padding: 40px;
+      border-radius: 20px;
+      border: 8px solid red;
+      animation: led 3.5s infinite;
+      display: inline-block;
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      color: #fff;
+    }
+    @keyframes led {
+      0% { border-color: red; }
+      14% { border-color: orange; }
+      28% { border-color: yellow; }
+      42% { border-color: green; }
+      57% { border-color: blue; }
+      71% { border-color: indigo; }
+      85% { border-color: violet; }
+      100% { border-color: red; }
+    }
+    a {
+      display: block;
+      margin: 10px;
+      padding: 12px;
+      background: #0af;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    a:hover { background: #08c; }
+  </style>
 </head>
 <body>
-  <div class="led-box">
-    <button class="client-btn" onclick="getClient()">Lấy Client</button>
+  <div class="led-border">
+    <h1>Tải Delta x Vng tại đây</h1>
+    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta x Vng</a>
   </div>
-
-<script>
-const box = document.querySelector('.led-box');
-const colors = ['red','orange','yellow','green','blue','indigo','violet'];
-const leds = [];
-const totalLEDs = 28; // số LED quanh viền
-
-for(let i=0;i<totalLEDs;i++){
-  const led = document.createElement('div');
-  led.classList.add('led');
-  box.appendChild(led);
-  leds.push(led);
-}
-
-function animateLEDs() {
-  const w = box.clientWidth;
-  const h = box.clientHeight;
-  const positions = [];
-
-  // Trên
-  for(let i=0;i<w;i+=w/7) positions.push({x:i, y:0});
-  // Phải
-  for(let i=0;i<h;i+=h/7) positions.push({x:w-12, y:i});
-  // Dưới
-  for(let i=w;i>0;i-=w/7) positions.push({x:i-12, y:h-12});
-  // Trái
-  for(let i=h;i>0;i-=h/7) positions.push({x:0, y:i-12});
-
-  let step = 0;
-  setInterval(()=>{
-    leds.forEach((led,i)=>{
-      const pos = positions[(i+step)%positions.length];
-      led.style.left = pos.x+'px';
-      led.style.top = pos.y+'px';
-      led.style.background = colors[(i+step)%colors.length];
-    });
-    step++;
-  }, 150);
-}
-
-animateLEDs();
-
-function GetClient() {
-  const LinkClient = "https://modsfire.com/f07Q0mjby8F4P80";
-  window.open(clientLink, "_blank");
-}
-</script>
 </body>
 </html>
