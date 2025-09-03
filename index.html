@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Download Center</title>
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #111;
-}
-.led-border {
-  position: relative;
-  padding: 40px;
-  border-radius: 20px;
-  background: rgba(0,0,0,0.6);
-  text-align: center;
-  color: #fff;
-}
-.led-border::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  width: calc(100% + 16px);
-  height: calc(100% + 16px);
-  border-radius: 28px;
-  background: repeating-linear-gradient(
-    90deg,
-    red, orange 14.28%, yellow 28.56%, green 42.84%, blue 57.12%, indigo 71.4%, violet 85.68%
-  );
-  background-size: 700% 700%;
-  animation: snake 4s linear infinite;
-  z-index: -1;
-}
-a {
-  display: block;
-  margin: 10px;
-  padding: 12px;
-  background: #0af;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-a:hover { background: #08c; }
-@keyframes snake {
-  0% { background-position: 0% 0%; }
-  25% { background-position: 100% 0%; }
-  50% { background-position: 100% 100%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 0%; }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Download Center</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+    }
+
+    .led-border {
+      position: relative;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .led-border::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: calc(100% + 16px);
+      height: calc(100% + 16px);
+      border-radius: 20px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+      background-size: 400% 400%;
+      z-index: -1;
+      animation: move 4s linear infinite;
+    }
+
+    @keyframes move {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    a {
+      display: block;
+      margin: 10px;
+      padding: 12px;
+      background: #0af;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    a:hover { background: #08c; }
+  </style>
 </head>
 <body>
-<div class="led-border">
-  <h1>Tải delta x Vng tại đây</h1>
-  <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta</a>
-</div>
+  <div class="led-border">
+    <h1>Tải Delta x Vng tại đây</h1>
+    <a href="https://modsfire.com/f07Q0mjby8F4P80" target="_blank">Delta x Vng</a>
+  </div>
 </body>
 </html>
