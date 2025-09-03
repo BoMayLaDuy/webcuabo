@@ -20,43 +20,87 @@
     width: 300px;
     height: 200px;
     background: #222;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .client-btn {
+    padding: 12px 24px;
+    font-size: 16px;
     color: #fff;
-    font-size: 24px;
-    text-align: center;
+    background: #444;
+    border: none;
     border-radius: 8px;
-    overflow: hidden;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .client-btn:hover {
+    background: #666;
   }
 
   .led {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: red;
-    animation: moveSnake 8s linear infinite;
-  }
-
-  @keyframes moveSnake {
-    0%   { top: -10px; left: -10px; background: red; }
-    12.5% { top: -10px; left: calc(100% - 10px); background: orange; }
-    25%  { top: calc(100% - 10px); left: calc(100% - 10px); background: yellow; }
-    37.5% { top: calc(100% - 10px); left: -10px; background: green; }
-    50%  { top: -10px; left: -10px; background: blue; }
-    62.5% { top: -10px; left: calc(100% - 10px); background: indigo; }
-    75%  { top: calc(100% - 10px); left: calc(100% - 10px); background: violet; }
-    87.5% { top: calc(100% - 10px); left: -10px; background: red; }
-    100% { top: -10px; left: -10px; background: orange; }
   }
 
 </style>
 </head>
 <body>
   <div class="led-box">
-    link cliet
-    <div class="led"></div>
+    <button class="client-btn" onclick="getClient()">Lấy Client</button>
   </div>
+
+<script>
+const box = document.querySelector('.led-box');
+const colors = ['red','orange','yellow','green','blue','indigo','violet'];
+const leds = [];
+const totalLEDs = 28; // số LED quanh viền
+
+for(let i=0;i<totalLEDs;i++){
+  const led = document.createElement('div');
+  led.classList.add('led');
+  box.appendChild(led);
+  leds.push(led);
+}
+
+function animateLEDs() {
+  const w = box.clientWidth;
+  const h = box.clientHeight;
+  const positions = [];
+
+  // Trên
+  for(let i=0;i<w;i+=w/7) positions.push({x:i, y:0});
+  // Phải
+  for(let i=0;i<h;i+=h/7) positions.push({x:w-12, y:i});
+  // Dưới
+  for(let i=w;i>0;i-=w/7) positions.push({x:i-12, y:h-12});
+  // Trái
+  for(let i=h;i>0;i-=h/7) positions.push({x:0, y:i-12});
+
+  let step = 0;
+  setInterval(()=>{
+    leds.forEach((led,i)=>{
+      const pos = positions[(i+step)%positions.length];
+      led.style.left = pos.x+'px';
+      led.style.top = pos.y+'px';
+      led.style.background = colors[(i+step)%colors.length];
+    });
+    step++;
+  }, 150);
+}
+
+animateLEDs();
+
+function GetClient() {
+  const LinkClient = "https://modsfire.com/f07Q0mjby8F4P80";
+  window.open(clientLink, "_blank");
+}
+</script>
 </body>
 </html>
